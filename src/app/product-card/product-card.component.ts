@@ -21,4 +21,12 @@ export class ProductCardComponent implements OnInit {
     this.likes = 0;
   }
 
+  onAddLike() {
+    this.likes++;
+  }
+
+  /**
+   * onRemoveLike ?
+   */
+
 }
