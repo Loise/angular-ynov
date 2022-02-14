@@ -6,7 +6,7 @@
     <b>{{price}} €</b>
     <p>
       <b>{{likes}} ♥ </b>
-      <button (click)="onAddLike()">Like</button>
+      <button (click)="onLike()">{{isLiked ? 'unlike' : 'like'}}</button>
     </p>
   </div>
 </div>

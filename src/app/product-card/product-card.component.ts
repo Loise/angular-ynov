@@ -11,6 +11,7 @@ export class ProductCardComponent implements OnInit {
   imageUrl: string;
   price: number;
   likes: number;
+  isLiked: boolean;
   constructor() { }
 
   ngOnInit() {
@@ -19,10 +20,16 @@ export class ProductCardComponent implements OnInit {
     this.imageUrl = "https://media.auchan.fr/42f06d04-cd4f-4cf0-8d86-48c56c856e31_512x512/B2CD/",
     this.price = 2300
     this.likes = 0;
+    this.isLiked = false;
   }
 
-  onAddLike() {
-    this.likes++;
+  onLike() {
+    if(this.isLiked) {
+      this.likes--;
+    } else {
+      this.likes++;
+    }
+    this.isLiked = !this.isLiked;
   }
 
   /**
