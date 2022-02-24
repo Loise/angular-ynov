@@ -2,6 +2,7 @@
   <h2>{{myProduct.title}}</h2>
   <img [src]="myProduct.imageUrl" />
   <p>{{myProduct.description}}</p>
+  <p *ngIf="myProduct.size?.length > 1">Plusieurs tailles disponibles</p>
   <div class="price-likes">
     <b>{{myProduct.price}} €</b>
     <p>

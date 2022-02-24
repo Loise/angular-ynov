@@ -5,6 +5,7 @@ export class Product {
         public imageUrl: string, 
         public price: number, 
         public likes: number, 
-        public isLiked: boolean) {
+        public isLiked: boolean,
+        public size?: string[]) {
     }
 }
