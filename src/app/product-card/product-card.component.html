@@ -6,7 +6,7 @@
   <div class="price-likes">
     <b>{{myProduct.price}} €</b>
     <p>
-      <b>{{myProduct.likes}} ♥ </b>
+      <b [ngStyle]="{ color: myProduct.likes > 0 ? 'green' : 'red' }">{{myProduct.likes}} ♥ </b>
       <button (click)="onLike()">{{myProduct.isLiked ? 'unlike' : 'like'}}</button>
     </p>
   </div>
