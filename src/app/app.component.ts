@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
         2300,
         0,
         false,
+        new Date('2022-02-28'),
         ['XL']
       ),
       new Product(
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
         2300,
         0,
         false,
+        new Date('2022-02-27'),
         ['XL', 'L']
       )
     ];

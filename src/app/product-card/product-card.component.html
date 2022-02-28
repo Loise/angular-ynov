@@ -1,13 +1,14 @@
 <div class="root">
-  <h2>{{myProduct.title}}</h2>
+  <h2>{{myProduct.title | uppercase}}</h2>
   <img [src]="myProduct.imageUrl" />
   <p>{{myProduct.description}}</p>
   <p *ngIf="myProduct.size?.length > 1">Plusieurs tailles disponibles</p>
   <div class="price-likes">
-    <b>{{myProduct.price}} €</b>
+    <b>{{myProduct.price | currency:'EUR' }} </b>
     <p>
       <b [ngStyle]="{ color: myProduct.likes > 0 ? 'green' : 'red' }">{{myProduct.likes}} ♥ </b>
       <button (click)="onLike()">{{myProduct.isLiked ? 'unlike' : 'like'}}</button>
     </p>
   </div>
+  <div>Date : {{myProduct.createdDate | date}}</div>
 </div>
