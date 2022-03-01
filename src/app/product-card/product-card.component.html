@@ -4,11 +4,11 @@
   <p>{{myProduct.description}}</p>
   <p *ngIf="myProduct.size?.length > 1">Plusieurs tailles disponibles</p>
   <div class="price-likes">
-    <b>{{myProduct.price | currency:'EUR' }} </b>
+    <b>{{(myProduct.price / 100) | number | currency:'EUR': true : '1.1' }} </b>
     <p>
       <b [ngStyle]="{ color: myProduct.likes > 0 ? 'green' : 'red' }">{{myProduct.likes}} ♥ </b>
       <button (click)="onLike()">{{myProduct.isLiked ? 'unlike' : 'like'}}</button>
     </p>
   </div>
-  <div>Date : {{myProduct.createdDate | date}}</div>
+  <div>Date : {{myProduct.createdDate | date:'fullDate'}}</div>
 </div>

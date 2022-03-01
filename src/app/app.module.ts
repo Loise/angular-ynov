@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-registerLocaleData(localeFr);
 import { AppComponent } from './app.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -22,3 +22,4 @@ import { ProductCardComponent } from './product-card/product-card.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
