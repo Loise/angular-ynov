@@ -27,4 +27,19 @@ export class ProductsService {
             ['XL', 'L']
         )
     ];
+
+    getAllProducts(): Product[] {
+        return this.products;
+    }
+
+    onLikeProduct(product): void {
+        if(product.isLiked) {
+            product.likes--;
+          } else {
+            product.likes++;
+          }
+          product.isLiked = !product.isLiked;
+    }
+
+    
 }

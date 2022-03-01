@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../models/product.model';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-product-card',
@@ -9,12 +10,9 @@ import { Product } from '../models/product.model';
 export class ProductCardComponent {
   @Input() myProduct!: Product;
 
+  constructor(private productsService: ProductsService) { }
+
   onLike() {
-    if(this.myProduct.isLiked) {
-      this.myProduct.likes--;
-    } else {
-      this.myProduct.likes++;
-    }
-    this.myProduct.isLiked = !this.myProduct.isLiked;
+    this.productsService.onLikeProduct(this.myProduct)
   }
 }

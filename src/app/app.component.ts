@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.products = this.productsService.products;
+    this.products = this.productsService.getAllProducts();
   }
 }
 
