@@ -4,12 +4,14 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { AppComponent } from './app.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import {SortByDatePipe} from './pipes/product.pipe'
 registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    SortByDatePipe
   ],
   imports: [
     BrowserModule
@@ -19,7 +21,10 @@ registerLocaleData(localeFr);
     useValue: 'fr-FR' // 'de-DE' for Germany, 'fr-FR' for France ...
   },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    SortByDatePipe
+  ]
 })
 export class AppModule { }
 
