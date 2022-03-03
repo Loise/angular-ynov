@@ -32,7 +32,7 @@ export class ProductsService {
         return this.products;
     }
 
-    onLikeProduct(product): void {
+    onLikeProduct(product:Product): void {
         if(product.isLiked) {
             product.likes--;
           } else {

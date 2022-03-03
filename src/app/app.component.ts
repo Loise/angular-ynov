@@ -9,11 +9,14 @@ import { ProductsService } from './services/products.service';
 })
 export class AppComponent implements OnInit {
   products!: Product[];
-
+  search: string = '';
+  title: string = '';
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
+    this.search = "";
     this.products = this.productsService.getAllProducts();
+    this.title = "my HP app"
   }
 }
 

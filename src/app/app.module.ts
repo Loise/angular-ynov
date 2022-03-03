@@ -4,17 +4,22 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { AppComponent } from './app.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import {SortByDatePipe} from './pipes/product.pipe'
+import { SortByDatePipe } from './pipes/sortByDate.pipe'
+import { FilterByNamePipe } from './pipes/filterByName.pipe';
+import { FormsModule } from '@angular/forms';
+
 registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductCardComponent,
-    SortByDatePipe
+    SortByDatePipe,
+    FilterByNamePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [{
     provide: LOCALE_ID,
@@ -23,7 +28,8 @@ registerLocaleData(localeFr);
   ],
   bootstrap: [AppComponent],
   exports: [
-    SortByDatePipe
+    SortByDatePipe,
+    FilterByNamePipe
   ]
 })
 export class AppModule { }
