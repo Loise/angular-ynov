@@ -7,6 +7,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { SortByDatePipe } from './pipes/sortByDate.pipe'
 import { FilterByNamePipe } from './pipes/filterByName.pipe';
 import { FormsModule } from '@angular/forms';
+import { ToBoldPipe } from './pipes/toBold.pipe';
 
 registerLocaleData(localeFr);
 
@@ -15,7 +16,8 @@ registerLocaleData(localeFr);
     AppComponent,
     ProductCardComponent,
     SortByDatePipe,
-    FilterByNamePipe
+    FilterByNamePipe,
+    ToBoldPipe
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ registerLocaleData(localeFr);
   bootstrap: [AppComponent],
   exports: [
     SortByDatePipe,
-    FilterByNamePipe
+    FilterByNamePipe,
+    ToBoldPipe
   ]
 })
 export class AppModule { }

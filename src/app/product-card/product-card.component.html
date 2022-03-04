@@ -1,5 +1,5 @@
 <div class="root">
-  <h2>{{myProduct.title | uppercase}}</h2>
+  <h2 [outerHTML]="myProduct.title | toBold"></h2>
   <img [src]="myProduct.imageUrl" />
   <p>{{myProduct.description}}</p>
   <p *ngIf="myProduct.size?.length > 1">Plusieurs tailles disponibles</p>
