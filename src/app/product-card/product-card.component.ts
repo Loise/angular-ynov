@@ -9,8 +9,9 @@ import { ProductsService } from '../services/products.service';
 })
 export class ProductCardComponent {
   @Input() myProduct!: Product;
+  @Input() orientation?: string;
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService) {}
 
   onLike() {
     this.productsService.onLikeProduct(this.myProduct)

@@ -8,6 +8,11 @@ import { SortByDatePipe } from './pipes/sortByDate.pipe'
 import { FilterByNamePipe } from './pipes/filterByName.pipe';
 import { FormsModule } from '@angular/forms';
 import { ToBoldPipe } from './pipes/toBold.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(localeFr);
 
@@ -17,11 +22,16 @@ registerLocaleData(localeFr);
     ProductCardComponent,
     SortByDatePipe,
     FilterByNamePipe,
-    ToBoldPipe
+    ToBoldPipe,
+    ProductsListComponent,
+    ProductDetailComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [{
     provide: LOCALE_ID,

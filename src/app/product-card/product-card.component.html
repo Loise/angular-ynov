@@ -1,14 +1,25 @@
-<div class="root">
-  <h2 [outerHTML]="myProduct.title | toBold"></h2>
-  <img [src]="myProduct.imageUrl" />
-  <p>{{myProduct.description}}</p>
-  <p *ngIf="myProduct.size?.length > 1">Plusieurs tailles disponibles</p>
-  <div class="price-likes">
-    <b>{{(myProduct.price / 100) | number | currency:'EUR': true : '1.1' }} </b>
-    <p>
-      <b [ngStyle]="{ color: myProduct.likes > 0 ? 'green' : 'red' }">{{myProduct.likes}} ♥ </b>
-      <button (click)="onLike()">{{myProduct.isLiked ? 'unlike' : 'like'}}</button>
-    </p>
+<div class="root" [ngStyle]="{ 
+  flexDirection: orientation == 'landscape' ? 'row' : 'column', 
+  textAlign: orientation === 'landscape' ? 'left' : 'center' 
+  }">
+  <div class="header">
+    <h2 [outerHTML]="myProduct.title | toBold"></h2>
+    <img [src]="myProduct.imageUrl" />
   </div>
-  <div>Date : {{myProduct.createdDate | date:'fullDate'}}</div>
+  <div class="content">
+    <p>{{myProduct.description}}</p>
+    <p *ngIf="myProduct.size?.length > 1">Plusieurs tailles disponibles</p>
+    <div class="price-likes" [ngStyle]="{ 
+      flexDirection: orientation == 'landscape' ? 'column' : 'row', 
+      alignItems: orientation === 'landscape' ? 'flex-start' : 'center' 
+      }">
+      <b>{{(myProduct.price / 100) | number | currency:'EUR': true : '1.1' }} </b>
+      <p>
+        <b [ngStyle]="{ color: myProduct.likes > 0 ? 'green' : 'red' }">{{myProduct.likes}} ♥ </b>
+        <button (click)="onLike()">{{myProduct.isLiked ? 'unlike' : 'like'}}</button>
+      </p>
+    </div>
+    <p>Date : {{myProduct.createdDate | date:'fullDate'}}</p>
+  </div>
+
 </div>

@@ -1,14 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<div>
-  Chercher : <input type="text" id="search" name="search" [(ngModel)]="search" />
-</div>
-<div>La recherche : {{search}}</div>
-<div class="products">
-  <app-product-card *ngFor="let product of (products | sortByDate:'asc' | filterByName:search)" [myProduct]="product">
-  </app-product-card>
-</div>
+<app-header [title]="title"></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

@@ -7,6 +7,7 @@ import { Product } from '../models/product.model';
 export class ProductsService {
     products: Product[] = [
         new Product(
+            1,
             "Peluche Harry Potter",
             "Peluche certifiée OEKO-TEX, coton bio issue du commerce équitable, taille 12 cm ",
             "https://media.auchan.fr/42f06d04-cd4f-4cf0-8d86-48c56c856e31_512x512/B2CD/",
@@ -17,6 +18,7 @@ export class ProductsService {
             ['XL']
         ),
         new Product(
+            2,
             "Peluche Ronnald Weasley",
             "Peluche certifiée OEKO-TEX, coton bio issue du commerce équitable, taille 12 cm ",
             "https://media.auchan.fr/0f9dcc51-564c-45d8-bda1-a27cf1db4703_512x512/B2CD/",
@@ -30,6 +32,10 @@ export class ProductsService {
 
     getAllProducts(): Product[] {
         return this.products;
+    }
+
+    getOneProduct(id: number): Product {
+        return this.products.find((p) => p.id === id)
     }
 
     onLikeProduct(product:Product): void {
