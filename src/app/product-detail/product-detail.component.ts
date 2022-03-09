@@ -1,22 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
-import {ActivatedRoute} from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })
+
 export class ProductDetailComponent implements OnInit {
-  @Input() myProduct!: Product;
+  myProduct!: Product;
   id: number;
   orientation: string;
 
-  constructor(private productsService: ProductsService, private route: ActivatedRoute) {
-    this.route.params.subscribe( params => {
+  constructor(
+    private productsService: ProductsService,
+    private route: ActivatedRoute
+  ) {
+    this.route.params.subscribe(params => {
       this.id = parseInt(params.id)
-    } );
+    });
   }
 
   ngOnInit() {
@@ -26,5 +30,4 @@ export class ProductDetailComponent implements OnInit {
   onLike() {
     this.productsService.onLikeProduct(this.myProduct)
   }
-
 }

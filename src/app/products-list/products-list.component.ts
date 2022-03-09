@@ -13,8 +13,6 @@ export class ProductsListComponent implements OnInit {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.search = "";
     this.products = this.productsService.getAllProducts();
   }
-
 }

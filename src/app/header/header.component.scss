@@ -1,3 +1,23 @@
 * {
     text-align: center;
+    background-color: lightcyan;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    li {
+        padding: 10px;
+        font-size: 20px;
+        margin-right: 50px;
+        a {
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.is-active {
+    border-bottom: 2px solid purple;
 }

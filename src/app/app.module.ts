@@ -13,6 +13,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
 
 registerLocaleData(localeFr);
 
@@ -26,7 +27,8 @@ registerLocaleData(localeFr);
     ProductsListComponent,
     ProductDetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

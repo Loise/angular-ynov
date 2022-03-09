@@ -3,9 +3,9 @@
 </div>
 <div>La recherche : {{search}}</div>
 <div class="products">
-  <a *ngFor="let currentProduct of (products | sortByDate:'asc' | filterByName:search)" [routerLink]="['product', currentProduct.id]">
-    <app-product-card [myProduct]="currentProduct">
+  <a *ngFor="let product of (products | sortByDate:'asc' | filterByName:search)"
+    [routerLink]="['product', product.id]">
+    <app-product-card [myProduct]="product">
     </app-product-card>
   </a>
- 
 </div>
