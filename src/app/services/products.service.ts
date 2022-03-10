@@ -14,17 +14,12 @@ export class ProductsService {
         return <Observable<Product[]>>this.http.get('http://localhost:3000/products')
     }
 
-    getOneProduct(id: number) {
+    getOneProduct(id: number): Observable<Product> {
         return <Observable<Product>>this.http.get(`http://localhost:3000/products/${id}`)
     }
 
-    onLikeProduct(product: Product): void {
-        /*if (product.isLiked) {
-            product.likes--;
-        } else {
-            product.likes++;
-        }
-        product.isLiked = !product.isLiked;*/
+    onLikeProduct(product: Product): Observable<Product>  {
+        return <Observable<Product>> this.http.put(`http://localhost:3000/products/${product.id}/likes`, {})
     }
 
 

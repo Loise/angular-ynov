@@ -29,6 +29,12 @@ export class ProductDetailComponent implements OnInit {
     this.orientation = "landscape";
   }
   onLike() {
-    //this.productsService.onLikeProduct(this.myProduct)
+    console.log("onLike")
+    this.myProductObservable.subscribe((p:Product) => {
+      let test = this.productsService.onLikeProduct(p);
+      console.log(test);
+    }
+    )
+    this.myProductObservable = this.productsService.getOneProduct(this.id);
   }
 }

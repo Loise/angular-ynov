@@ -14,6 +14,6 @@ export class ProductCardComponent {
   constructor(private productsService: ProductsService) {}
 
   onLike() {
-    this.productsService.onLikeProduct(this.myProduct)
+    this.productsService.onLikeProduct(this.myProduct).subscribe((p:Product) => this.myProduct = p)
   }
 }
