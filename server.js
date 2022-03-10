@@ -32,6 +32,27 @@ const products = [
   }
 ]
 
+const orderIds = [
+  {
+    id: 1,
+    contactNme: "Loïse Fenoll",
+    status: "Completed",
+    orderId: "azerttyicp"
+  },
+  {
+    id: 2,
+    contactNme: "Jane Birkin",
+    status: "Shipped",
+    orderId: "ugyiuoijkbj"
+  },
+  {
+    id: 3,
+    contactNme: "Nicola Sirkis",
+    status: "Payed",
+    orderId: "yugumlkmlm"
+  }
+]
+
 app.get('/products', (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   res.json(products)
@@ -55,6 +76,31 @@ app.put('/products/:id/likes', (req, res) => {
 
   res.set('Access-Control-Allow-Origin', '*');
   res.json(product)
+})
+
+app.post('/orders', (req, res) => {
+  let contactName = req.body.contact.name;
+  let random = (Math.random() + 1).toString(36).substring(7);
+  let newOrder = {
+    id: orderIds[orderIds.length - 1] + 1,
+    contactNme: contactName,
+    status: "Saved",
+    orderId: random
+  }
+  orderIds.push(newOrder)
+  res.set('Access-Control-Allow-Origin', '*');
+  res.json(newOrder.id)
+})
+
+app.get('/orders', (req,res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.json(orderIds)
+})
+
+app.get('/orders/:id', (req,res) => {
+  const id = req.params.id;
+  res.set('Access-Control-Allow-Origin', '*');
+  res.json(orderIds.find((o) => o.id == id))
 })
 
 app.listen(port, () => {
