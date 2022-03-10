@@ -20,6 +20,6 @@
       </p>
     </div>
     <p>Date : {{myProduct.createdDate | date:'fullDate'}}</p>
+    <p *ngIf="link"><a [routerLink]="['product', myProduct.id]">Voir plus</a></p>
   </div>
-
 </div>
