@@ -1,51 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductsService {
-    products: Product[] = [
-        new Product(
-            1,
-            "Peluche Harry Potter",
-            "Peluche certifiée OEKO-TEX, coton bio issue du commerce équitable, taille 12 cm ",
-            "https://media.auchan.fr/42f06d04-cd4f-4cf0-8d86-48c56c856e31_512x512/B2CD/",
-            2300,
-            0,
-            false,
-            new Date('2022-02-28'),
-            ['XL']
-        ),
-        new Product(
-            2,
-            "Peluche Ronnald Weasley",
-            "Peluche certifiée OEKO-TEX, coton bio issue du commerce équitable, taille 12 cm ",
-            "https://media.auchan.fr/0f9dcc51-564c-45d8-bda1-a27cf1db4703_512x512/B2CD/",
-            2300,
-            0,
-            false,
-            new Date('2022-02-27'),
-            ['XL', 'L']
-        )
-    ];
 
-    getAllProducts(): Product[] {
-        return this.products;
+    constructor(private http: HttpClient) { }
+
+    getAllProducts(): Observable<Product[]> {
+        return <Observable<Product[]>>this.http.get('http://localhost:3000/products')
     }
 
-    getOneProduct(id: number): Product {
-        return this.products.find((p) => p.id === id)
+    getOneProduct(id: number) {
+        return <Observable<Product>>this.http.get(`http://localhost:3000/products/${id}`)
     }
 
-    onLikeProduct(product:Product): void {
-        if(product.isLiked) {
+    onLikeProduct(product: Product): void {
+        /*if (product.isLiked) {
             product.likes--;
-          } else {
+        } else {
             product.likes++;
-          }
-          product.isLiked = !product.isLiked;
+        }
+        product.isLiked = !product.isLiked;*/
     }
 
-    
+
 }

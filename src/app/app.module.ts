@@ -14,6 +14,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from '@angular/common/http'
 
 registerLocaleData(localeFr);
 
@@ -33,7 +34,8 @@ registerLocaleData(localeFr);
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [{
     provide: LOCALE_ID,

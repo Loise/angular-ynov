@@ -6,8 +6,8 @@ export class SortByDatePipe implements PipeTransform {
     transform(products: Product[], order?: any) {
         let desc = !(order && order === 'asc');
         return products.sort((a, b) => {
-            if (desc) return b.createdDate.getTime() - a.createdDate.getTime()
-            else return a.createdDate.getTime() - b.createdDate.getTime()
+            if (desc) return new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()
+            else return new Date(a.createdDate).getTime() - new Date(b.createdDate).getTime()
         });
     }
 }
